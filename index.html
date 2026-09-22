@@ -1,0 +1,305 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VMC Sync | Student Community</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+        <img src="logo.png" alt="VMC Sync Logo">
+        <span>VMC Sync</span>
+    </div>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search VMC Sync..."
+            onkeyup="searchContent()"
+        >
+    </div>
+
+    <div class="top-actions">
+        <button onclick="showSection('home')">⌂</button>
+        <button onclick="showSection('assignments')">📚</button>
+        <button onclick="showSection('lostfound')">🔎</button>
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN LAYOUT ================= -->
+
+<div class="page-layout">
+
+    <!-- LEFT SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="profile-card">
+
+            <div class="profile-picture">
+                R
+            </div>
+
+            <h3>Student</h3>
+
+            <p>VMC Student</p>
+
+        </div>
+
+
+        <nav>
+
+            <button onclick="showSection('home')">
+                🏠 Home
+            </button>
+
+            <button onclick="showSection('assignments')">
+                📚 Assignment Hub
+            </button>
+
+            <button onclick="showSection('lostfound')">
+                🔎 Lost & Found
+            </button>
+
+            <button onclick="showSection('about')">
+                ℹ️ About VMC Sync
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HOME -->
+
+        <section id="home" class="page-section">
+
+            <div class="welcome-card">
+
+                <h1>Welcome to VMC Sync 👋</h1>
+
+                <p>
+                    Your digital community hub for Villagers Montessori College.
+                </p>
+
+            </div>
+
+
+            <div class="create-post">
+
+                <div class="small-profile">
+                    S
+                </div>
+
+                <input
+                    type="text"
+                    placeholder="What's happening at VMC?"
+                    readonly
+                >
+
+            </div>
+
+
+            <h2 class="section-title">
+                Campus Feed
+            </h2>
+
+            <div id="announcementContainer">
+
+                <!-- Announcements will appear here -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ASSIGNMENTS -->
+
+        <section id="assignments" class="page-section hidden">
+
+            <div class="section-header">
+
+                <h1>📚 Assignment Hub</h1>
+
+                <p>
+                    Keep track of your academic requirements.
+                </p>
+
+            </div>
+
+
+            <div id="assignmentContainer">
+
+                <!-- Assignments appear here -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LOST AND FOUND -->
+
+        <section id="lostfound" class="page-section hidden">
+
+            <div class="section-header">
+
+                <h1>🔎 Lost & Found</h1>
+
+                <p>
+                    Find or report items around the campus.
+                </p>
+
+            </div>
+
+
+            <div id="lostFoundContainer">
+
+                <!-- Lost and found items -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ABOUT -->
+
+        <section id="about" class="page-section hidden">
+
+            <div class="about-card">
+
+                <h1>About VMC Sync</h1>
+
+                <p>
+                    VMC Sync is a web-based service platform and student
+                    community designed specifically for Villagers Montessori College.
+                </p>
+
+                <h2>Our Purpose</h2>
+
+                <p>
+                    VMC Sync brings school announcements, coursework,
+                    campus information and useful student services into
+                    one centralized digital platform.
+                </p>
+
+
+                <h2>Core Functions</h2>
+
+                <ul>
+
+                    <li>
+                        Campus Feed Management & Display
+                    </li>
+
+                    <li>
+                        Assignment Tracking Hub
+                    </li>
+
+                    <li>
+                        Lost and Found Registry
+                    </li>
+
+                    <li>
+                        Local Data Synchronization
+                    </li>
+
+                    <li>
+                        Responsive Multi-Section Navigation
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= RIGHT SIDEBAR ================= -->
+
+    <aside class="right-sidebar">
+
+        <div class="quick-card">
+
+            <h3>VMC Sync</h3>
+
+            <p>
+                Stay connected with your campus community.
+            </p>
+
+        </div>
+
+
+        <div class="quick-card">
+
+            <h3>Quick Access</h3>
+
+            <button onclick="showSection('assignments')">
+                📚 Assignments
+            </button>
+
+            <button onclick="showSection('lostfound')">
+                🔎 Lost & Found
+            </button>
+
+        </div>
+
+    </aside>
+
+</div>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="mobile-nav">
+
+    <button onclick="showSection('home')">
+        🏠
+        <span>Home</span>
+    </button>
+
+    <button onclick="showSection('assignments')">
+        📚
+        <span>Tasks</span>
+    </button>
+
+    <button onclick="showSection('lostfound')">
+        🔎
+        <span>Lost</span>
+    </button>
+
+    <button onclick="showSection('about')">
+        ℹ️
+        <span>About</span>
+    </button>
+
+</nav>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
