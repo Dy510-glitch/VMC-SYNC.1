@@ -1,0 +1,471 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VMC Sync | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background: #eef5fa;
+        }
+
+        .admin-wrapper {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 30px;
+        }
+
+        .admin-header {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            margin-bottom: 25px;
+
+            border-left: 5px solid #d6aa32;
+
+        }
+
+        .admin-header h1 {
+
+            margin-bottom: 8px;
+
+        }
+
+        .admin-header p {
+
+            color: #777;
+
+        }
+
+        .admin-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+        .admin-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 2px 8px rgba(0,0,0,0.05);
+
+        }
+
+        .admin-card h2 {
+
+            margin-bottom: 18px;
+
+        }
+
+        .admin-card input,
+        .admin-card textarea,
+        .admin-card select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #ccdce5;
+
+            border-radius: 8px;
+
+            font-family: Arial;
+
+        }
+
+        .admin-card textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+
+        }
+
+        .admin-btn {
+
+            background: #0878b8;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
+        .admin-btn:hover {
+
+            background: #075f91;
+
+        }
+
+        .danger-btn {
+
+            background: #c62828;
+
+            color: white;
+
+            border: none;
+
+            padding: 8px 12px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+        }
+
+        .data-list {
+
+            margin-top: 20px;
+
+        }
+
+        .data-item {
+
+            border: 1px solid #e1e8ed;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-bottom: 10px;
+
+        }
+
+        .data-item h3 {
+
+            margin-bottom: 5px;
+
+        }
+
+        .data-item p {
+
+            color: #666;
+
+            margin-bottom: 8px;
+
+        }
+
+        .admin-topbar {
+
+            background: #111;
+
+            color: white;
+
+            padding: 15px 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .admin-topbar a {
+
+            color: white;
+
+            text-decoration: none;
+
+            background: #0878b8;
+
+            padding: 9px 15px;
+
+            border-radius: 7px;
+
+        }
+
+        @media(max-width: 800px) {
+
+            .admin-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ADMIN TOPBAR -->
+
+<header class="admin-topbar">
+
+    <strong>
+        VMC Sync | Admin Dashboard
+    </strong>
+
+    <a href="index.html">
+        View Student Website
+    </a>
+
+</header>
+
+
+<div class="admin-wrapper">
+
+
+    <!-- HEADER -->
+
+    <div class="admin-header">
+
+        <h1>
+            VMC Sync Administration
+        </h1>
+
+        <p>
+            Manage campus announcements, assignments,
+            and lost & found records.
+        </p>
+
+    </div>
+
+
+    <div class="admin-grid">
+
+
+        <!-- ================= ANNOUNCEMENT ================= -->
+
+        <div class="admin-card">
+
+            <h2>
+                📢 Add Announcement
+            </h2>
+
+            <input
+                type="text"
+                id="announcementTitle"
+                placeholder="Announcement title"
+            >
+
+            <textarea
+                id="announcementContent"
+                placeholder="Announcement details..."
+            ></textarea>
+
+            <input
+                type="text"
+                id="announcementDate"
+                placeholder="Date"
+            >
+
+            <button
+                class="admin-btn"
+                onclick="addAnnouncement()"
+            >
+                Publish Announcement
+            </button>
+
+        </div>
+
+
+        <!-- ================= ASSIGNMENT ================= -->
+
+        <div class="admin-card">
+
+            <h2>
+                📚 Add Assignment
+            </h2>
+
+            <input
+                type="text"
+                id="assignmentSubject"
+                placeholder="Subject Code / Subject"
+            >
+
+            <input
+                type="text"
+                id="assignmentTitle"
+                placeholder="Assignment title"
+            >
+
+            <textarea
+                id="assignmentDescription"
+                placeholder="Assignment description..."
+            ></textarea>
+
+            <input
+                type="date"
+                id="assignmentDueDate"
+            >
+
+            <button
+                class="admin-btn"
+                onclick="addAssignment()"
+            >
+                Add Assignment
+            </button>
+
+        </div>
+
+
+        <!-- ================= LOST FOUND ================= -->
+
+        <div class="admin-card">
+
+            <h2>
+                🔎 Add Lost & Found
+            </h2>
+
+            <input
+                type="text"
+                id="lostItem"
+                placeholder="Item name"
+            >
+
+            <textarea
+                id="lostDescription"
+                placeholder="Description..."
+            ></textarea>
+
+            <input
+                type="text"
+                id="lostLocation"
+                placeholder="Location"
+            >
+
+            <select id="lostStatus">
+
+                <option value="Lost">
+                    Lost
+                </option>
+
+                <option value="Found">
+                    Found
+                </option>
+
+            </select>
+
+            <button
+                class="admin-btn"
+                onclick="addLostFound()"
+            >
+                Add Record
+            </button>
+
+        </div>
+
+
+        <!-- ================= DATA MANAGEMENT ================= -->
+
+        <div class="admin-card">
+
+            <h2>
+                🗂 Current Data
+            </h2>
+
+            <p>
+                Manage records currently stored in VMC Sync.
+            </p>
+
+            <button
+                class="admin-btn"
+                onclick="refreshAdminData()"
+            >
+                Refresh Data
+            </button>
+
+            <button
+                class="danger-btn"
+                onclick="clearAllData()"
+            >
+                Clear All Data
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ANNOUNCEMENT LIST ================= -->
+
+    <div class="admin-card data-list">
+
+        <h2>
+            📢 Announcements
+        </h2>
+
+        <div id="adminAnnouncements"></div>
+
+    </div>
+
+
+    <!-- ================= ASSIGNMENT LIST ================= -->
+
+    <div class="admin-card data-list">
+
+        <h2>
+            📚 Assignments
+        </h2>
+
+        <div id="adminAssignments"></div>
+
+    </div>
+
+
+    <!-- ================= LOST FOUND LIST ================= -->
+
+    <div class="admin-card data-list">
+
+        <h2>
+            🔎 Lost & Found
+        </h2>
+
+        <div id="adminLostFound"></div>
+
+    </div>
+
+
+</div>
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
+```
